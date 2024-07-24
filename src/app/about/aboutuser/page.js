@@ -3,8 +3,7 @@ import Link from "next/link";
 const AboutUser = () => {
   return (
     <div>
-      <h1>AboutUser</h1>
-      <Link href={"/about"}>Back to About</Link>
+      <h1 className="heading">AboutUser</h1>
     </div>
   );
 };
