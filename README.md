@@ -1,9 +1,10 @@
 ## Getting Started
 
 First, run the development server:
-first command npm install
 
 ```bash
+#first command
+npm install
 #to start application :
 npm run dev
 
