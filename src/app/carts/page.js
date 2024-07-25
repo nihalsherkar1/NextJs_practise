@@ -1,5 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
+import Cartbutton from "./cartbutton";
+import "./style.css";
+import custom from "../custom.module.css";
+import outside from "@/style/outside.module.css";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: "900",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 async function cartData() {
   let data = await fetch("https://dummyjson.com/carts");
@@ -12,16 +22,18 @@ export default async function Carts() {
 
   return (
     <div>
-      <h1>Cart</h1>
+      <h1 className="heading">Cart</h1>
+      <h2 className={custom.heading}>Under heading</h2>
+      <h2 className={outside.heading}>Under heading</h2>
+
       {data.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="cart_container">
           <h3>{item.id}</h3>
           <ul>
             {item.products.map((product) => (
-              <li key={product.id}>
+              <li key={product.id} className={roboto.className}>
                 <p>ProductID: {product.id}</p>
                 <p>ProductName: {product.title}</p>
-                <p>Price: {product.price}</p>
                 <p>Quantity: {product.quantity}</p>
                 <p>Total: {product.total}</p>
                 <p>Discount Percentage: {product.discountPercentage}</p>
@@ -32,9 +44,8 @@ export default async function Carts() {
                   width={200}
                   height={200}
                 />
-                <Link href={`/cart/${product.id}`}>
-                  <button>View Product</button>
-                </Link>
+
+                <Cartbutton price={product.price} />
               </li>
             ))}
           </ul>
@@ -42,4 +53,11 @@ export default async function Carts() {
       ))}
     </div>
   );
+}
+
+export function generateMetadata() {
+  return {
+    title: "Cart",
+    description: "This is Cart section",
+  };
 }

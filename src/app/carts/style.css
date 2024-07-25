@@ -1,0 +1,58 @@
+/* .heading {
+    color: gray;
+} */
+
+.cart_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.cart_container ul li {
+    display: flex;
+    list-style: none;
+    border: 1px solid black;
+    padding: 15px 80px;
+}
+
+.cart_container ul li p {
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+/* Loader css */
+.loader-line {
+    width: 200px;
+    height: 3px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ddd;
+    margin: 100px auto;
+    border-radius: 20px;
+}
+
+.loader-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background-color: coral;
+    animation: lineAnim 1s linear infinite;
+    border-radius: 20px;
+}
+
+@keyframes lineAnim {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
