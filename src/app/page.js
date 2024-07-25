@@ -1,5 +1,7 @@
 // Hooks use karenge toh start me "use client"likhna hai
 
+import Link from "next/link";
+
 // naviagtion ke lite next/navigation se import krna hai "useRouter"
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
   return (
     <main>
       <h1>Hello </h1>
+      <Link href={"/productlist"}>Go to Product List</Link>
+      <Link href={"/carts"}>Go to carts List</Link>
 
       {/* <Link href={"/login"}>Go to Login</Link>
       <br />
